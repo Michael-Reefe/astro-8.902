@@ -21,11 +21,11 @@ def vrot(rr0, alpha):
     if alpha == 0:
         return rr0
     elif alpha == 1:
-        return np.sqrt(rr0)
+        return np.sqrt(2 * rr0)
     elif alpha == 2:
-        return np.ones(rr0.size)
+        return 2 * np.ones(rr0.size)
     elif alpha == 3:
-        return np.sqrt(1/rr0)
+        return np.sqrt(1/rr0 * (1 - np.log(rr0)))
 
 # Generate array of r/r0 scales
 rr0 = np.linspace(0, 4, 100)
@@ -58,7 +58,7 @@ ax.plot(rr0, v1, 'k-', label=r'$\alpha = 1$')   # r^1/2
 ax.plot(rr0, v2, 'r-', label=r'$\alpha = 2$')   # Constant
 ax.plot(rr0, v3, 'b-', label=r'$\alpha = 3$')   # r^-1/2
 ax.set_xlabel(r'$r/r_0$')
-ax.set_ylabel(r'$v_{\rm rot} / \sqrt{\frac{4}{3}\pi G \rho_0 r_0^2}$')
+ax.set_ylabel(r'$v_{\rm rot} / \sqrt{\pi G \rho_0 r_0^2}$')
 ax.legend()
 plt.savefig('vrot_plots.pdf', dpi=300, bbox_inches='tight')
 plt.close()

@@ -177,6 +177,7 @@ def main():
 	ax1.set_aspect('equal', 'box')
 	ax1.set_xticks([-2,-1,0,1,2])
 	ax1.set_yticks([-2,-1,0,1,2])
+	ax1.set_title(f"Softening = {softening}")
 
 	ax2.set(xlim=(0, tEnd), ylim=(-1, 1))
 	ax2.set_aspect(tEnd/8, 'box')

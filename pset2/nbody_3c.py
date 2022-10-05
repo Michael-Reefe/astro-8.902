@@ -75,8 +75,8 @@ def main():
 	# Simulation parameters
 	N         = 1           # Number of particles
 	t         = 0           # current time of the simulation in TU
-	# tEnd      = 500.0        # time at which simulation ends in TU (1 TU ~ 14.908 Myr)
-	tEnd      = 25.0        # time at which simulation ends in TU (1 TU ~ 14.908 Myr)
+	tEnd      = 5000.0        # time at which simulation ends in TU (1 TU ~ 14.908 Myr)
+	# tEnd      = 25.0        # time at which simulation ends in TU (1 TU ~ 14.908 Myr)
 	dt        = 0.01        # time step
 	alpha     = 3
 	rho0      = 0.427       # Msun / pc^3, density scale (Binney & Tremaine)
@@ -87,9 +87,11 @@ def main():
 	np.random.seed(17)
 
 	# Generate Initial Conditions	
-	mass = 1                     # total mass of particle is 1 Msun
-	pos = np.array([1/1e3,  0])     # initial position in ([u] = 1/pc, [psi] = rad)
-	vel = np.array([-1/1e6, 1])     # initial velocity in ([du/dpsi] = 1/pc/rad, [dpsi/dt] = rad/TU)
+	mass = 1                        # total mass of particle is 1 Msun
+	# pos = np.array([1/1e3,  0])     # initial position in ([u] = 1/pc, [psi] = rad)
+	pos = np.array([1/7.3e3, 0])
+	# vel = np.array([-1/1e6, 1])     # initial velocity in ([du/dpsi] = 1/pc/rad, [dpsi/dt] = rad/TU)
+	vel = np.array([-1/1e6, 0.1])
 
 	l = 1/pos[0]**2 * vel[1]   # (constant) angular momentum
 	
@@ -122,10 +124,10 @@ def main():
 	sca0 = ax1.scatter(xx/1e3, yy/1e3, color='blue', s=5)
 	eng = ax2.scatter([], [], color='red', s=1)
 
-	ax1.set(xlim=(-1.5, 1.5), ylim=(-1.5, 1.5))
+	ax1.set(xlim=(-10, 10), ylim=(-10, 10))
 	ax1.set_aspect('equal', 'box')
-	ax1.set_xticks(np.arange(-1, 2, 1))
-	ax1.set_yticks(np.arange(-1, 2, 1))
+	ax1.set_xticks(np.arange(-12, 15, 3))
+	ax1.set_yticks(np.arange(-12, 15, 3))
 	ax1.set_xlabel('$x$ (kpc)')
 	ax1.set_ylabel('$y$ (kpc)')
 
