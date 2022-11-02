@@ -10,9 +10,9 @@ c = 299792.458   # Speed of light (km/s)
 
 # Define cosmology: Flat LambdaCDM
 H0 = 70                       # Hubble constant (t=0) (km/s/Mpc)
-Om0 = 0.0                     # Omega_matter (t=0)
+Om0 = 0.3                     # Omega_matter (t=0)
 Or0 = 0.0                     # Omega_radiation (t=0)
-Ode0 = 1.0                    # Omega_Lambda (t=0)
+Ode0 = 0.7                    # Omega_Lambda (t=0)
 OK0 = 1 - Om0 - Or0 - Ode0    # Omega_K (t=0)
 
 # Hubble distance scale in Mpc
